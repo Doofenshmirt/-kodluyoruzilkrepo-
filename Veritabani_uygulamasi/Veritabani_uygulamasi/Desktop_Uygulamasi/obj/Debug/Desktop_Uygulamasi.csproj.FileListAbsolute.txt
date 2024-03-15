@@ -1,0 +1,13 @@
+E:\yazilimpaylas\Veritabani_uygulamasi\Desktop_Uygulamasi\bin\Debug\Desktop_Uygulamasi.exe.config
+E:\yazilimpaylas\Veritabani_uygulamasi\Desktop_Uygulamasi\bin\Debug\Desktop_Uygulamasi.exe
+E:\yazilimpaylas\Veritabani_uygulamasi\Desktop_Uygulamasi\bin\Debug\Desktop_Uygulamasi.pdb
+E:\yazilimpaylas\Veritabani_uygulamasi\Desktop_Uygulamasi\obj\Debug\Desktop_Uygulamasi.csproj.AssemblyReference.cache
+E:\yazilimpaylas\Veritabani_uygulamasi\Desktop_Uygulamasi\obj\Debug\Desktop_Uygulamasi.Form1.resources
+E:\yazilimpaylas\Veritabani_uygulamasi\Desktop_Uygulamasi\obj\Debug\Desktop_Uygulamasi.Properties.Resources.resources
+E:\yazilimpaylas\Veritabani_uygulamasi\Desktop_Uygulamasi\obj\Debug\Desktop_Uygulamasi.csproj.GenerateResource.cache
+E:\yazilimpaylas\Veritabani_uygulamasi\Desktop_Uygulamasi\obj\Debug\Desktop_Uygulamasi.csproj.CoreCompileInputs.cache
+E:\yazilimpaylas\Veritabani_uygulamasi\Desktop_Uygulamasi\obj\Debug\Desktop_Uygulamasi.exe
+E:\yazilimpaylas\Veritabani_uygulamasi\Desktop_Uygulamasi\obj\Debug\Desktop_Uygulamasi.pdb
+E:\yazilimpaylas\Veritabani_uygulamasi\Desktop_Uygulamasi\bin\Debug\Veritabani_uygulamasi.dll
+E:\yazilimpaylas\Veritabani_uygulamasi\Desktop_Uygulamasi\bin\Debug\Veritabani_uygulamasi.pdb
+E:\yazilimpaylas\Veritabani_uygulamasi\Desktop_Uygulamasi\bin\Debug\Veritabani_uygulamasi.dll.config
