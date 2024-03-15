@@ -1,0 +1,81 @@
+﻿@model IEnumerable<MVC_okul2_veritabani_projesi.Models.Ogrenciler>
+
+@{
+    Layout = null;
+}
+@Styles.Render("~/Content/css")
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>sinif_bazinda_rapor</title>
+</head>
+<body>
+    @using (Html.BeginForm())
+    {
+        <b>Sınıf Seçiniz:</b> @Html.DropDownList("sinif_adi", null, "Tümü", new { @class = "form-control", onchange = "this.form.submit()" })
+        <b>Email:</b> @Html.TextBox("email", null, new { @class = "form-control", onchange = "this.form.submit()" })
+
+    }
+
+    <table class="table table-bordered">
+        <tr>
+            <th>
+                Sıra No
+            </th>
+            <th>
+                Sınıf
+            </th>
+            <th>
+                Öğrenci No
+            </th>
+            <th>
+                Ad soyad
+            </th>
+            <th>
+                Doğum Tarihi
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.tc_kimlik)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.email)
+            </th>
+
+
+        </tr>
+        @{int sayac = 1;}
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    <b>@sayac</b>
+                    @{ sayac++;}
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.siniflar.sinif_adi)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.og_no)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.og_ad_soyad)
+                </td>
+                <td>
+                    @item.dog_tar.ToShortDateString()
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.tc_kimlik)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.email)
+                </td>
+
+
+            </tr>
+        }
+        <tr><td colspan="6" align="right">Toplam Mevcud:@ViewBag.mevcud</td></tr>
+    </table>
+</body>
+</html>

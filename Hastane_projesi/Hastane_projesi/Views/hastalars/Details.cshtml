@@ -1,0 +1,58 @@
+﻿@model Hastane_projesi.Models.hastalar
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Details</title>
+</head>
+<body>
+    <div>
+        <h4>hastalar</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.hasta_tc)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.hasta_tc)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.hasta_adi)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.hasta_adi)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.hasta_adres)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.hasta_adres)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.hasta_cinsiyet)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.hasta_cinsiyet)
+            </dd>
+    
+        </dl>
+    </div>
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.hasta_no }) |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+</body>
+</html>

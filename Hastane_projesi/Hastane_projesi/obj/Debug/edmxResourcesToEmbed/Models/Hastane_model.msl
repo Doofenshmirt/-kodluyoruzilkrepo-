@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="hastaneModelStoreContainer" CdmEntityContainer="hastaneEntities">
+    <EntitySetMapping Name="Departmanlar">
+      <EntityTypeMapping TypeName="hastaneModel.Departmanlar">
+        <MappingFragment StoreEntitySet="Departmanlar">
+          <ScalarProperty Name="dept_no" ColumnName="dept_no" />
+          <ScalarProperty Name="dept_adi" ColumnName="dept_adi" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Doktorlar">
+      <EntityTypeMapping TypeName="hastaneModel.Doktorlar">
+        <MappingFragment StoreEntitySet="Doktorlar">
+          <ScalarProperty Name="doktor_no" ColumnName="doktor_no" />
+          <ScalarProperty Name="doktor_adi" ColumnName="doktor_adi" />
+          <ScalarProperty Name="dept_no" ColumnName="dept_no" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="hastalar">
+      <EntityTypeMapping TypeName="hastaneModel.hastalar">
+        <MappingFragment StoreEntitySet="hastalar">
+          <ScalarProperty Name="hasta_no" ColumnName="hasta_no" />
+          <ScalarProperty Name="hasta_tc" ColumnName="hasta_tc" />
+          <ScalarProperty Name="hasta_adi" ColumnName="hasta_adi" />
+          <ScalarProperty Name="hasta_adres" ColumnName="hasta_adres" />
+          <ScalarProperty Name="hasta_cinsiyet" ColumnName="hasta_cinsiyet" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Yatislar">
+      <EntityTypeMapping TypeName="hastaneModel.Yatislar">
+        <MappingFragment StoreEntitySet="Yatislar">
+          <ScalarProperty Name="yatis_tarihi" ColumnName="yatis_tarihi" />
+          <ScalarProperty Name="cikis_tarihi" ColumnName="cikis_tarihi" />
+          <ScalarProperty Name="hasta_no" ColumnName="hasta_no" />
+          <ScalarProperty Name="doktor_no" ColumnName="doktor_no" />
+          <ScalarProperty Name="oda_no" ColumnName="oda_no" />
+          <ScalarProperty Name="dept_no" ColumnName="dept_no" />
+          <ScalarProperty Name="kayit_no" ColumnName="kayit_no" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

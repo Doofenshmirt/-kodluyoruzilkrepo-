@@ -1,0 +1,96 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="okul2Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Dersler">
+    <Key>
+      <PropertyRef Name="ders_no" />
+    </Key>
+    <Property Name="ders_no" Type="tinyint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ders_adi" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Notlar">
+    <Key>
+      <PropertyRef Name="kayit_no" />
+    </Key>
+    <Property Name="kayit_no" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="og_no" Type="int" Nullable="false" />
+    <Property Name="ders_no" Type="tinyint" Nullable="false" />
+    <Property Name="yaz1" Type="tinyint" />
+    <Property Name="yaz2" Type="tinyint" />
+    <Property Name="soz" Type="tinyint" />
+  </EntityType>
+  <EntityType Name="Ogrenciler">
+    <Key>
+      <PropertyRef Name="og_no" />
+    </Key>
+    <Property Name="og_no" Type="int" Nullable="false" />
+    <Property Name="og_ad_soyad" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="dog_tar" Type="smalldatetime" Nullable="false" />
+    <Property Name="tc_kimlik" Type="bigint" Nullable="false" />
+    <Property Name="adres" Type="nvarchar" MaxLength="150" />
+    <Property Name="email" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="sinif_adi" Type="nchar" MaxLength="10" Nullable="false" />
+  </EntityType>
+  <EntityType Name="siniflar">
+    <Key>
+      <PropertyRef Name="sinif_adi" />
+    </Key>
+    <Property Name="sinif_adi" Type="nchar" MaxLength="10" Nullable="false" />
+    <Property Name="mevcud" Type="tinyint" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_Notlar_Dersler">
+    <End Role="Dersler" Type="Self.Dersler" Multiplicity="1" />
+    <End Role="Notlar" Type="Self.Notlar" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Dersler">
+        <PropertyRef Name="ders_no" />
+      </Principal>
+      <Dependent Role="Notlar">
+        <PropertyRef Name="ders_no" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Notlar_Ogrenciler">
+    <End Role="Ogrenciler" Type="Self.Ogrenciler" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Notlar" Type="Self.Notlar" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Ogrenciler">
+        <PropertyRef Name="og_no" />
+      </Principal>
+      <Dependent Role="Notlar">
+        <PropertyRef Name="og_no" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Ogrenciler_siniflar">
+    <End Role="siniflar" Type="Self.siniflar" Multiplicity="1" />
+    <End Role="Ogrenciler" Type="Self.Ogrenciler" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="siniflar">
+        <PropertyRef Name="sinif_adi" />
+      </Principal>
+      <Dependent Role="Ogrenciler">
+        <PropertyRef Name="sinif_adi" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="okul2ModelStoreContainer">
+    <EntitySet Name="Dersler" EntityType="Self.Dersler" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Notlar" EntityType="Self.Notlar" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Ogrenciler" EntityType="Self.Ogrenciler" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="siniflar" EntityType="Self.siniflar" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_Notlar_Dersler" Association="Self.FK_Notlar_Dersler">
+      <End Role="Dersler" EntitySet="Dersler" />
+      <End Role="Notlar" EntitySet="Notlar" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Notlar_Ogrenciler" Association="Self.FK_Notlar_Ogrenciler">
+      <End Role="Ogrenciler" EntitySet="Ogrenciler" />
+      <End Role="Notlar" EntitySet="Notlar" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Ogrenciler_siniflar" Association="Self.FK_Ogrenciler_siniflar">
+      <End Role="siniflar" EntitySet="siniflar" />
+      <End Role="Ogrenciler" EntitySet="Ogrenciler" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

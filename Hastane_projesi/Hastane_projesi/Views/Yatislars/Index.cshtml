@@ -1,0 +1,71 @@
+﻿@model IEnumerable<Hastane_projesi.Models.Yatislar>
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.yatis_tarihi)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.cikis_tarihi)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.oda_no)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Departmanlar.dept_adi)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Doktorlar.doktor_adi)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.hastalar.hasta_adi)
+            </th>
+            <th></th>
+        </tr>
+    
+    @foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.yatis_tarihi)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.cikis_tarihi)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.oda_no)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Departmanlar.dept_adi)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Doktorlar.doktor_adi)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.hastalar.hasta_adi)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id=item.kayit_no }) |
+                @Html.ActionLink("Details", "Details", new { id=item.kayit_no }) |
+                @Html.ActionLink("Delete", "Delete", new { id=item.kayit_no })
+            </td>
+        </tr>
+    }
+    
+    </table>
+</body>
+</html>

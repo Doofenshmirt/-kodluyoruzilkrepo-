@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="okul2ModelStoreContainer" CdmEntityContainer="okul2Entities">
+    <EntitySetMapping Name="Dersler">
+      <EntityTypeMapping TypeName="okul2Model.Dersler">
+        <MappingFragment StoreEntitySet="Dersler">
+          <ScalarProperty Name="ders_no" ColumnName="ders_no" />
+          <ScalarProperty Name="ders_adi" ColumnName="ders_adi" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Notlar">
+      <EntityTypeMapping TypeName="okul2Model.Notlar">
+        <MappingFragment StoreEntitySet="Notlar">
+          <ScalarProperty Name="kayit_no" ColumnName="kayit_no" />
+          <ScalarProperty Name="og_no" ColumnName="og_no" />
+          <ScalarProperty Name="ders_no" ColumnName="ders_no" />
+          <ScalarProperty Name="yaz1" ColumnName="yaz1" />
+          <ScalarProperty Name="yaz2" ColumnName="yaz2" />
+          <ScalarProperty Name="soz" ColumnName="soz" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Ogrenciler">
+      <EntityTypeMapping TypeName="okul2Model.Ogrenciler">
+        <MappingFragment StoreEntitySet="Ogrenciler">
+          <ScalarProperty Name="og_no" ColumnName="og_no" />
+          <ScalarProperty Name="og_ad_soyad" ColumnName="og_ad_soyad" />
+          <ScalarProperty Name="dog_tar" ColumnName="dog_tar" />
+          <ScalarProperty Name="tc_kimlik" ColumnName="tc_kimlik" />
+          <ScalarProperty Name="adres" ColumnName="adres" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="sinif_adi" ColumnName="sinif_adi" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="siniflar">
+      <EntityTypeMapping TypeName="okul2Model.siniflar">
+        <MappingFragment StoreEntitySet="siniflar">
+          <ScalarProperty Name="sinif_adi" ColumnName="sinif_adi" />
+          <ScalarProperty Name="mevcud" ColumnName="mevcud" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

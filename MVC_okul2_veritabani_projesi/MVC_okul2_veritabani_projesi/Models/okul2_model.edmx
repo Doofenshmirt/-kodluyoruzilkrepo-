@@ -1,0 +1,274 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="okul2Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Dersler">
+          <Key>
+            <PropertyRef Name="ders_no" />
+          </Key>
+          <Property Name="ders_no" Type="tinyint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ders_adi" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Notlar">
+          <Key>
+            <PropertyRef Name="kayit_no" />
+          </Key>
+          <Property Name="kayit_no" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="og_no" Type="int" Nullable="false" />
+          <Property Name="ders_no" Type="tinyint" Nullable="false" />
+          <Property Name="yaz1" Type="tinyint" />
+          <Property Name="yaz2" Type="tinyint" />
+          <Property Name="soz" Type="tinyint" />
+        </EntityType>
+        <EntityType Name="Ogrenciler">
+          <Key>
+            <PropertyRef Name="og_no" />
+          </Key>
+          <Property Name="og_no" Type="int" Nullable="false" />
+          <Property Name="og_ad_soyad" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="dog_tar" Type="smalldatetime" Nullable="false" />
+          <Property Name="tc_kimlik" Type="bigint" Nullable="false" />
+          <Property Name="adres" Type="nvarchar" MaxLength="150" />
+          <Property Name="email" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="sinif_adi" Type="nchar" MaxLength="10" Nullable="false" />
+        </EntityType>
+        <EntityType Name="siniflar">
+          <Key>
+            <PropertyRef Name="sinif_adi" />
+          </Key>
+          <Property Name="sinif_adi" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="mevcud" Type="tinyint" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_Notlar_Dersler">
+          <End Role="Dersler" Type="Self.Dersler" Multiplicity="1" />
+          <End Role="Notlar" Type="Self.Notlar" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Dersler">
+              <PropertyRef Name="ders_no" />
+            </Principal>
+            <Dependent Role="Notlar">
+              <PropertyRef Name="ders_no" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Notlar_Ogrenciler">
+          <End Role="Ogrenciler" Type="Self.Ogrenciler" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Notlar" Type="Self.Notlar" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Ogrenciler">
+              <PropertyRef Name="og_no" />
+            </Principal>
+            <Dependent Role="Notlar">
+              <PropertyRef Name="og_no" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Ogrenciler_siniflar">
+          <End Role="siniflar" Type="Self.siniflar" Multiplicity="1" />
+          <End Role="Ogrenciler" Type="Self.Ogrenciler" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="siniflar">
+              <PropertyRef Name="sinif_adi" />
+            </Principal>
+            <Dependent Role="Ogrenciler">
+              <PropertyRef Name="sinif_adi" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="okul2ModelStoreContainer">
+          <EntitySet Name="Dersler" EntityType="Self.Dersler" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Notlar" EntityType="Self.Notlar" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Ogrenciler" EntityType="Self.Ogrenciler" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="siniflar" EntityType="Self.siniflar" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Notlar_Dersler" Association="Self.FK_Notlar_Dersler">
+            <End Role="Dersler" EntitySet="Dersler" />
+            <End Role="Notlar" EntitySet="Notlar" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Notlar_Ogrenciler" Association="Self.FK_Notlar_Ogrenciler">
+            <End Role="Ogrenciler" EntitySet="Ogrenciler" />
+            <End Role="Notlar" EntitySet="Notlar" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Ogrenciler_siniflar" Association="Self.FK_Ogrenciler_siniflar">
+            <End Role="siniflar" EntitySet="siniflar" />
+            <End Role="Ogrenciler" EntitySet="Ogrenciler" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="okul2Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Dersler">
+          <Key>
+            <PropertyRef Name="ders_no" />
+          </Key>
+          <Property Name="ders_no" Type="Byte" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ders_adi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Notlar" Relationship="Self.FK_Notlar_Dersler" FromRole="Dersler" ToRole="Notlar" />
+        </EntityType>
+        <EntityType Name="Notlar">
+          <Key>
+            <PropertyRef Name="kayit_no" />
+          </Key>
+          <Property Name="kayit_no" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="og_no" Type="Int32" Nullable="false" />
+          <Property Name="ders_no" Type="Byte" Nullable="false" />
+          <Property Name="yaz1" Type="Byte" />
+          <Property Name="yaz2" Type="Byte" />
+          <Property Name="soz" Type="Byte" />
+          <NavigationProperty Name="Dersler" Relationship="Self.FK_Notlar_Dersler" FromRole="Notlar" ToRole="Dersler" />
+          <NavigationProperty Name="Ogrenciler" Relationship="Self.FK_Notlar_Ogrenciler" FromRole="Notlar" ToRole="Ogrenciler" />
+        </EntityType>
+        <EntityType Name="Ogrenciler">
+          <Key>
+            <PropertyRef Name="og_no" />
+          </Key>
+          <Property Name="og_no" Type="Int32" Nullable="false" />
+          <Property Name="og_ad_soyad" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="dog_tar" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="tc_kimlik" Type="Int64" Nullable="false" />
+          <Property Name="adres" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="sinif_adi" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Notlar" Relationship="Self.FK_Notlar_Ogrenciler" FromRole="Ogrenciler" ToRole="Notlar" />
+          <NavigationProperty Name="siniflar" Relationship="Self.FK_Ogrenciler_siniflar" FromRole="Ogrenciler" ToRole="siniflar" />
+        </EntityType>
+        <EntityType Name="siniflar">
+          <Key>
+            <PropertyRef Name="sinif_adi" />
+          </Key>
+          <Property Name="sinif_adi" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="mevcud" Type="Byte" Nullable="false" />
+          <NavigationProperty Name="Ogrenciler" Relationship="Self.FK_Ogrenciler_siniflar" FromRole="siniflar" ToRole="Ogrenciler" />
+        </EntityType>
+        <Association Name="FK_Notlar_Dersler">
+          <End Role="Dersler" Type="Self.Dersler" Multiplicity="1" />
+          <End Role="Notlar" Type="Self.Notlar" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Dersler">
+              <PropertyRef Name="ders_no" />
+            </Principal>
+            <Dependent Role="Notlar">
+              <PropertyRef Name="ders_no" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Notlar_Ogrenciler">
+          <End Role="Ogrenciler" Type="Self.Ogrenciler" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Notlar" Type="Self.Notlar" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Ogrenciler">
+              <PropertyRef Name="og_no" />
+            </Principal>
+            <Dependent Role="Notlar">
+              <PropertyRef Name="og_no" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Ogrenciler_siniflar">
+          <End Role="siniflar" Type="Self.siniflar" Multiplicity="1" />
+          <End Role="Ogrenciler" Type="Self.Ogrenciler" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="siniflar">
+              <PropertyRef Name="sinif_adi" />
+            </Principal>
+            <Dependent Role="Ogrenciler">
+              <PropertyRef Name="sinif_adi" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="okul2Entities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Dersler" EntityType="Self.Dersler" />
+          <EntitySet Name="Notlar" EntityType="Self.Notlar" />
+          <EntitySet Name="Ogrenciler" EntityType="Self.Ogrenciler" />
+          <EntitySet Name="siniflar" EntityType="Self.siniflar" />
+          <AssociationSet Name="FK_Notlar_Dersler" Association="Self.FK_Notlar_Dersler">
+            <End Role="Dersler" EntitySet="Dersler" />
+            <End Role="Notlar" EntitySet="Notlar" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Notlar_Ogrenciler" Association="Self.FK_Notlar_Ogrenciler">
+            <End Role="Ogrenciler" EntitySet="Ogrenciler" />
+            <End Role="Notlar" EntitySet="Notlar" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Ogrenciler_siniflar" Association="Self.FK_Ogrenciler_siniflar">
+            <End Role="siniflar" EntitySet="siniflar" />
+            <End Role="Ogrenciler" EntitySet="Ogrenciler" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="okul2ModelStoreContainer" CdmEntityContainer="okul2Entities">
+          <EntitySetMapping Name="Dersler">
+            <EntityTypeMapping TypeName="okul2Model.Dersler">
+              <MappingFragment StoreEntitySet="Dersler">
+                <ScalarProperty Name="ders_no" ColumnName="ders_no" />
+                <ScalarProperty Name="ders_adi" ColumnName="ders_adi" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Notlar">
+            <EntityTypeMapping TypeName="okul2Model.Notlar">
+              <MappingFragment StoreEntitySet="Notlar">
+                <ScalarProperty Name="kayit_no" ColumnName="kayit_no" />
+                <ScalarProperty Name="og_no" ColumnName="og_no" />
+                <ScalarProperty Name="ders_no" ColumnName="ders_no" />
+                <ScalarProperty Name="yaz1" ColumnName="yaz1" />
+                <ScalarProperty Name="yaz2" ColumnName="yaz2" />
+                <ScalarProperty Name="soz" ColumnName="soz" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Ogrenciler">
+            <EntityTypeMapping TypeName="okul2Model.Ogrenciler">
+              <MappingFragment StoreEntitySet="Ogrenciler">
+                <ScalarProperty Name="og_no" ColumnName="og_no" />
+                <ScalarProperty Name="og_ad_soyad" ColumnName="og_ad_soyad" />
+                <ScalarProperty Name="dog_tar" ColumnName="dog_tar" />
+                <ScalarProperty Name="tc_kimlik" ColumnName="tc_kimlik" />
+                <ScalarProperty Name="adres" ColumnName="adres" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="sinif_adi" ColumnName="sinif_adi" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="siniflar">
+            <EntityTypeMapping TypeName="okul2Model.siniflar">
+              <MappingFragment StoreEntitySet="siniflar">
+                <ScalarProperty Name="sinif_adi" ColumnName="sinif_adi" />
+                <ScalarProperty Name="mevcud" ColumnName="mevcud" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

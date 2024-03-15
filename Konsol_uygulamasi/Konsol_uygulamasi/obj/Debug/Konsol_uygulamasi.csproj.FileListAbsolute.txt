@@ -1,0 +1,7 @@
+E:\yazilimpaylas\Konsol_uygulamasi\Konsol_uygulamasi\bin\Debug\Konsol_uygulamasi.exe.config
+E:\yazilimpaylas\Konsol_uygulamasi\Konsol_uygulamasi\bin\Debug\Konsol_uygulamasi.exe
+E:\yazilimpaylas\Konsol_uygulamasi\Konsol_uygulamasi\bin\Debug\Konsol_uygulamasi.pdb
+E:\yazilimpaylas\Konsol_uygulamasi\Konsol_uygulamasi\obj\Debug\Konsol_uygulamasi.csproj.AssemblyReference.cache
+E:\yazilimpaylas\Konsol_uygulamasi\Konsol_uygulamasi\obj\Debug\Konsol_uygulamasi.csproj.CoreCompileInputs.cache
+E:\yazilimpaylas\Konsol_uygulamasi\Konsol_uygulamasi\obj\Debug\Konsol_uygulamasi.exe
+E:\yazilimpaylas\Konsol_uygulamasi\Konsol_uygulamasi\obj\Debug\Konsol_uygulamasi.pdb

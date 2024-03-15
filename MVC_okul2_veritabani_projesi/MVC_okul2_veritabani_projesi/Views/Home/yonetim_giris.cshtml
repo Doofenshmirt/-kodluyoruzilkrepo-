@@ -1,0 +1,31 @@
+﻿
+@{
+    Layout = null;
+}
+@Styles.Render("~/Content/css")
+<!DOCTYPE html>
+
+<html>
+<head>
+
+    <meta name="viewport" content="width=device-width" />
+    <title>Yönetici Giriş Sayfası</title>
+</head>
+<body>
+   @ViewBag.msj
+    <div>
+        @if(Session["kontrol"]!=null)
+        { 
+        @Html.ActionLink("Öğrenci İşlemleri", "tum_ogrencileri_goster", "Ogrenciler")
+        }
+        @using (Html.BeginForm())
+        {
+            <table style="width:100%;">
+                <tr><td>Kullanıcı Adı:</td><td>@Html.TextBox("kul_adi", null, new { @class = "form-control" })</td></tr>
+                <tr><td>Şifre:</td><td>@Html.Password("sifre", null, new { @class = "form-control" })</td></tr>
+                <tr><td colspan="2"><input id="Submit1" type="submit" value="Giriş" class="btn btn-success" /></td></tr>
+            </table>
+        }
+    </div>
+</body>
+</html>

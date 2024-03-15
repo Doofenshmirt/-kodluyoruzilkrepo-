@@ -1,0 +1,92 @@
+﻿@model IEnumerable<MVC_okul2_veritabani_projesi.Models.Notlar>
+
+@{
+    Layout = null;
+}
+@Styles.Render("~/Content/css")
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body style="background-color:blue">
+    <p>
+        @Html.ActionLink("Yeni Not Girişi", "Create",null, new { @class = "btn btn-success" })
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.yaz1)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.yaz2)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.soz)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Dersler.ders_adi)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Ogrenciler.og_ad_soyad)
+            </th>
+
+            <th>Ortlama</th>
+            <th>Durumu</th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.yaz1)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.yaz2)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.soz)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Dersler.ders_adi)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Ogrenciler.og_ad_soyad)
+                </td>
+          
+                <td>
+@{ 
+    int? ort = (item.yaz1 + item.yaz2 + item.soz) / 3;
+}
+                    <b>@ort</b>
+                </td>
+                <td>
+                    @if (ort >= 50)
+                    {
+                        <b><font color="green">GEÇTİ</font></b>
+                    }
+                    else if (ort == null)
+                    {
+                        <b><font color="gray">Not Hesaplanmadı</font></b>
+                    }
+                    else
+                    {
+                        <b><font color="red">KALDI</font></b>
+                    }
+                </td>
+                <td>
+                    @Html.ActionLink("Güncelle", "Edit", new { id = item.kayit_no }, new { @class = "btn btn-primary" }) |
+
+                    @*  @Html.ActionLink("Sil", "Delete", new { id = item.kayit_no })*@
+                    <a href="@Url.Action("Delete", new {id=item.kayit_no})">
+                    <img src="~/Content/trash.png" height="20" width="20" class="img-circle" /></a>   
+                </td>
+            </tr>
+        }
+
+    </table>
+</body>
+</html>

@@ -1,0 +1,110 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="hastaneModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Departmanlar">
+    <Key>
+      <PropertyRef Name="dept_no" />
+    </Key>
+    <Property Name="dept_no" Type="tinyint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="dept_adi" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Doktorlar">
+    <Key>
+      <PropertyRef Name="doktor_no" />
+    </Key>
+    <Property Name="doktor_no" Type="smallint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="doktor_adi" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="dept_no" Type="tinyint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="hastalar">
+    <Key>
+      <PropertyRef Name="hasta_no" />
+    </Key>
+    <Property Name="hasta_no" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="hasta_tc" Type="bigint" Nullable="false" />
+    <Property Name="hasta_adi" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="hasta_adres" Type="nvarchar" MaxLength="200" Nullable="false" />
+    <Property Name="hasta_cinsiyet" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Yatislar">
+    <Key>
+      <PropertyRef Name="kayit_no" />
+    </Key>
+    <Property Name="yatis_tarihi" Type="smalldatetime" Nullable="false" />
+    <Property Name="cikis_tarihi" Type="smalldatetime" />
+    <Property Name="hasta_no" Type="int" Nullable="false" />
+    <Property Name="doktor_no" Type="smallint" Nullable="false" />
+    <Property Name="oda_no" Type="tinyint" Nullable="false" />
+    <Property Name="dept_no" Type="tinyint" Nullable="false" />
+    <Property Name="kayit_no" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_Doktorlar_Departmanlar">
+    <End Role="Departmanlar" Type="Self.Departmanlar" Multiplicity="1" />
+    <End Role="Doktorlar" Type="Self.Doktorlar" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Departmanlar">
+        <PropertyRef Name="dept_no" />
+      </Principal>
+      <Dependent Role="Doktorlar">
+        <PropertyRef Name="dept_no" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Yatislar_Departmanlar">
+    <End Role="Departmanlar" Type="Self.Departmanlar" Multiplicity="1" />
+    <End Role="Yatislar" Type="Self.Yatislar" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Departmanlar">
+        <PropertyRef Name="dept_no" />
+      </Principal>
+      <Dependent Role="Yatislar">
+        <PropertyRef Name="dept_no" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Yatislar_Doktorlar">
+    <End Role="Doktorlar" Type="Self.Doktorlar" Multiplicity="1" />
+    <End Role="Yatislar" Type="Self.Yatislar" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Doktorlar">
+        <PropertyRef Name="doktor_no" />
+      </Principal>
+      <Dependent Role="Yatislar">
+        <PropertyRef Name="doktor_no" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Yatislar_hastalar">
+    <End Role="hastalar" Type="Self.hastalar" Multiplicity="1" />
+    <End Role="Yatislar" Type="Self.Yatislar" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="hastalar">
+        <PropertyRef Name="hasta_no" />
+      </Principal>
+      <Dependent Role="Yatislar">
+        <PropertyRef Name="hasta_no" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="hastaneModelStoreContainer">
+    <EntitySet Name="Departmanlar" EntityType="Self.Departmanlar" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Doktorlar" EntityType="Self.Doktorlar" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="hastalar" EntityType="Self.hastalar" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Yatislar" EntityType="Self.Yatislar" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_Doktorlar_Departmanlar" Association="Self.FK_Doktorlar_Departmanlar">
+      <End Role="Departmanlar" EntitySet="Departmanlar" />
+      <End Role="Doktorlar" EntitySet="Doktorlar" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Yatislar_Departmanlar" Association="Self.FK_Yatislar_Departmanlar">
+      <End Role="Departmanlar" EntitySet="Departmanlar" />
+      <End Role="Yatislar" EntitySet="Yatislar" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Yatislar_Doktorlar" Association="Self.FK_Yatislar_Doktorlar">
+      <End Role="Doktorlar" EntitySet="Doktorlar" />
+      <End Role="Yatislar" EntitySet="Yatislar" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Yatislar_hastalar" Association="Self.FK_Yatislar_hastalar">
+      <End Role="hastalar" EntitySet="hastalar" />
+      <End Role="Yatislar" EntitySet="Yatislar" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

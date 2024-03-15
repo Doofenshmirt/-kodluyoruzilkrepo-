@@ -1,0 +1,79 @@
+﻿@model IEnumerable<MVC_okul2_veritabani_projesi.Models.Ogrenciler>
+
+@{
+    Layout = null;
+}
+@Styles.Render("~/Content/css")
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>tum_ogrencileri_goster</title>
+</head>
+<body>
+    @ViewBag.silinme_msj
+    <p>
+        @Html.ActionLink("YENİ ÖĞRENCİ KAYDET", "ogrenci_kaydet", null, new { @class = "btn btn-success" })
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                Numara
+            </th>
+            <th>
+                Ad Soyad
+            </th>
+            <th>
+                Doğum Tarihi
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.tc_kimlik)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.adres)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.email)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.siniflar.sinif_adi)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.og_no)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.og_ad_soyad)
+                </td>
+                <td>
+                    @item.dog_tar.ToShortDateString()
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.tc_kimlik)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.adres)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.email)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.siniflar.sinif_adi)
+                </td>
+                <td>
+                    @Html.ActionLink("GÜNCELLE", "ogrenci_duzenle", new { id = item.og_no }, new { @class = "btn btn-primary" }) |
+
+                    @Html.ActionLink("SİL", "ogrenci_sil", new { id = item.og_no }, new { @class = "btn btn-danger" })
+                </td>
+            </tr>
+        }
+
+    </table>
+</body>
+</html>
