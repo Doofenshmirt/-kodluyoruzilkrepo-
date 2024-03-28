@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31729.503
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Personel_kayit_sistemi_composition", "Personel_kayit_sistemi_composition\Personel_kayit_sistemi_composition.csproj", "{405C9225-303C-4CFC-8998-7744C4717020}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{405C9225-303C-4CFC-8998-7744C4717020}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{405C9225-303C-4CFC-8998-7744C4717020}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{405C9225-303C-4CFC-8998-7744C4717020}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{405C9225-303C-4CFC-8998-7744C4717020}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {911E13DB-120B-476B-AE3B-5B709807CD9E}
+	EndGlobalSection
+EndGlobal
