@@ -1,0 +1,81 @@
+﻿@model PagedList<E_ticaret_Projemiz.Models.urunler>
+@using PagedList;
+@using PagedList.Mvc; 
+<style>
+    .secici
+    {
+    height:150px;
+    width:150px;
+    border-style:solid;
+    border-width:1px;
+    border-color:lightgray;
+    border-radius:10px;
+    }
+    .secici img
+    {
+        height:100%;
+        width:100%;
+        object-fit:cover;
+        border-radius:10px;
+    }
+</style>
+<table class="table" align="center">
+    <tr>
+       @{ 
+
+           var liste = Model.Take(4);//baştan itibaren kaç eleman alınanacak
+           }
+        @foreach (var item in liste)
+        {
+            
+        
+            <td align="center">
+                <div class="secici">  <img src="~/urun_resimleri/@item.resim" /></div>
+                <br />
+                Adı:@Html.DisplayFor(modelItem => item.urunadi)<br />
+
+                Fiyatı: @Html.DisplayFor(modelItem => item.fiyat)<br />
+
+                Açıklama: @Html.DisplayFor(modelItem => item.aciklama)<br />
+
+                @Html.ActionLink("Sepete Ekle", "sepete_ekle", "sepet", new { urunid = item.urunid }, new { @class = "btn  btn-danger" })
+            </td>
+
+
+
+        }
+    </tr>
+
+    @*ikinci satır bloğu*@
+
+
+    <tr>
+        @{  
+        liste = Model.Skip(4);//skip belirtilen sayıda elemanı atla sonrakileri getir
+        }
+        @foreach (var item in liste)
+        {
+          
+            <td align="center">
+                <div class="secici">  <img src="~/urun_resimleri/@item.resim" /></div>
+                <br />
+                Adı:@Html.DisplayFor(modelItem => item.urunadi)<br />
+
+                Fiyatı: @Html.DisplayFor(modelItem => item.fiyat)<br />
+
+                Açıklama: @Html.DisplayFor(modelItem => item.aciklama)<br />
+
+                @Html.ActionLink("Sepete Ekle", "sepete_ekle", "sepet", new { urunid = item.urunid }, new { @class = "btn  btn-danger" })
+            </td>
+
+       
+        }
+    </tr>
+
+    <tr>
+        <td colspan="3">
+            @Html.PagedListPager(Model, sayfa => Url.Action("urun_goster", new { sayfa }), PagedListRenderOptions.ClassicPlusFirstAndLast)
+        </td>
+    </tr>
+</table>
+

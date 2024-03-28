@@ -1,0 +1,95 @@
+﻿@using E_ticaret_Projemiz.Models;
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-Ticaret_Sitemiz</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/takvim")
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+    <table class="tablo">
+        <tr>
+            <td colspan="3" class="ustmenu">
+                <nav class="navbar navbar-expand-lg bg-body-tertiary">
+                    <div class="container-fluid">
+                        <a class="navbar-brand" href="#">KAPATIYORUZ.COM</a>
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                            <ul class="navbar-nav">
+                                <li class="nav-item">
+                                    <a class="nav-link active" aria-current="page" href="@Url.Action("index","Home")">Ana Sayfa</a>
+                                </li>
+                                @if (Session["uyem"] == null)
+                                {
+                                <li class="nav-item">
+                                    <a class="nav-link" href="@Url.Action("Create","uyelers")">üYE OL</a>
+                                </li>
+                                }
+                                else
+                                {
+                                <li class="nav-item">
+                                    <a class="nav-link" href="@Url.Action("Edit","uyelers",new {id=((uyeler)Session["uyem"]).uyeid})">Hesabım</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="@Url.Action("guv_cikis","Home")">Güvenli Çıkış</a>
+                                </li>
+                                }
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">iLETİŞİM</a>
+                                </li>
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                        KATEGORİLER
+                                    </a>
+
+                                    @{ Html.RenderAction("kategori_doldur", "Home");}
+
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2" class="icerik_td">
+                <div class="icerik">@RenderBody()</div>
+            </td>
+            <td width="25%">
+                <div class="div1">
+
+                    @ViewBag.msj <br />
+                    @{Html.RenderPartial("~/Views/Home/login_giris.cshtml");}
+
+                </div>
+            </td>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="3" class="altbilgi_td"><div class="div2">@@Copyright Yazılım Uzmanlığı</div></td>
+        </tr>
+    </table>
+
+
+    <script src="~/Scripts/bootstrap.bundle.js"></script>
+    <script>
+        function togglePassword() {
+            var element = document.getElementById('sifre');
+            element.type = (element.type == 'password' ? 'text' : 'password');
+        }</script>
+    <script>
+        $("#dogtar").datepicker({
+            format: 'dd/mm/yyyy',
+            autoclose: true,
+            language: 'tr'
+        });
+    </script>
+
+</body>
+</html>

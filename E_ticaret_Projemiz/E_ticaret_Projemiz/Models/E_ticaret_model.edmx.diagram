@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="637e7aee95994734b1650b924c174377" Name="Diagram1">
+        <EntityTypeShape EntityType="E_ticaretModel.admin" Width="1.5" PointX="2.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="E_ticaretModel.kategoriler" Width="1.5" PointX="0.75" PointY="9" IsExpanded="true" />
+        <EntityTypeShape EntityType="E_ticaretModel.meslek" Width="1.5" PointX="0.75" PointY="2" IsExpanded="true" />
+        <EntityTypeShape EntityType="E_ticaretModel.sehirler" Width="1.5" PointX="0.75" PointY="6" IsExpanded="true" />
+        <EntityTypeShape EntityType="E_ticaretModel.siparisler" Width="1.5" PointX="5.25" PointY="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="E_ticaretModel.urunler" Width="1.5" PointX="3" PointY="8.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="E_ticaretModel.uyeler" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+        <AssociationConnector Association="E_ticaretModel.FK_urunler_kategoriler" ManuallyRouted="false" />
+        <AssociationConnector Association="E_ticaretModel.FK_uyeler_meslek1" ManuallyRouted="false" />
+        <AssociationConnector Association="E_ticaretModel.FK_uyeler_sehirler1" ManuallyRouted="false" />
+        <AssociationConnector Association="E_ticaretModel.FK_siparisler_urunler" ManuallyRouted="false" />
+        <AssociationConnector Association="E_ticaretModel.FK_siparisler_uyeler1" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

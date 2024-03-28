@@ -1,0 +1,42 @@
+﻿@model E_ticaret_Projemiz.Models.Sepet
+
+@{
+    Layout = null;
+}
+@Styles.Render("~/Content/css")
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+
+    <table class="table">
+        <tr>
+            <th>Resim</th>
+            <th>Ürün Adı</th>
+            <th>Adet</th>
+            <th>Fiyat</th>
+            <th>Toplam</th>
+            <th>Sepetten Çıkar</th>
+        </tr>
+
+        @foreach (var item in Model.Sepetim)
+        {
+            <tr>
+                <td><img src="~/urun_resimleri/@item.urun.resim" height="80" width="80" /></td>
+                <td>@item.urun.urunadi</td>
+                <td>@item.adet </td>
+                <td>@item.urun.fiyat</td>
+                <td>@(item.adet*item.urun.fiyat)</td>
+                <td>
+                    @Html.ActionLink("SİL", "sepetten_sil", new { id = item.urun.urunid })
+                </td>
+            </tr>
+        }
+        <tr><td colspan="6" align="right">Sepet Toplamı=@Model.Sepet_toplami()</td></tr>
+    </table>
+</body>
+</html>

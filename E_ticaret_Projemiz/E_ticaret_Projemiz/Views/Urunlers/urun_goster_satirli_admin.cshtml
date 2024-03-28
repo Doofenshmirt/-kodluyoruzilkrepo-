@@ -1,0 +1,67 @@
+﻿@model PagedList<E_ticaret_Projemiz.Models.urunler>
+@using PagedList;
+@using PagedList.Mvc; 
+@{
+    Layout = null;
+}
+@Styles.Render("~/Content/css")
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>urun_goster</title>
+</head>
+<body>
+    <p>
+        @Html.ActionLink("Yeni Ürün", "urun_kaydet")
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+               Ürün Adı
+            </th>
+            <th>
+               Fiyatı
+            </th>
+            <th>
+              Açıklama
+            </th>
+            <th>
+             Resim
+            </th>
+            <th>
+               Kategori
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.urunadi)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.fiyat)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.aciklama)
+                </td>
+                <td>
+                  <img src="~/urun_resimleri/@item.resim" height="150" width="150" />
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.kategoriler.kateadi)
+                </td>
+                <td>
+                    @Html.ActionLink("Güncelle", "Edit", new { id = item.urunid }) |
+                    @Html.ActionLink("Sil", "Delete", new { id = item.urunid })
+                </td>
+            </tr>
+        }
+        <tr><td colspan="6">
+            @Html.PagedListPager(Model,sayfa=>Url.Action("urun_goster",new { sayfa }),PagedListRenderOptions.ClassicPlusFirstAndLast)  </td></tr>
+    </table>
+</body>
+</html>

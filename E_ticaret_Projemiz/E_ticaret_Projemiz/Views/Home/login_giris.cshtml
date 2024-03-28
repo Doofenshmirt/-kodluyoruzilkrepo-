@@ -1,0 +1,28 @@
+﻿@using E_ticaret_Projemiz.Models;
+ @{ 
+     string msj = "Hoş Geldiniz Misafir";
+     if (Session["uyem"]!=null)
+     {
+         msj = "Hoş Geldiniz " + ((uyeler)Session["uyem"]).adsoyad;
+     }
+ }
+
+<b>@msj</b>
+@if (Session["uyem"] == null)
+{
+using (Html.BeginForm("login_giris", "Home"))
+{
+<div class="input-container">
+    <i class="fa fa-user icon"></i>
+    @*<input type="email" placeholder="Email" name="email" class="input-field" required>*@
+    @Html.TextBox("kuladi", null, new { @class = "form-control", placeholder = "Kullanıcı Adı", required = true })
+</div>
+<div class="input-container">
+    <i class="fa fa-key icon"></i>
+    @*input type="password" placeholder="Password" name="password" class="input-field" required>*@
+    @Html.Password("sifre", null, new { @class = "form-control", placeholder = "Şifre", required = true })
+    <i class="fa fa-eye icon" onclick="togglePassword()"></i>
+</div>
+<div><input type="submit" class="bttn" value="GİRİŞ"></div>
+}
+}

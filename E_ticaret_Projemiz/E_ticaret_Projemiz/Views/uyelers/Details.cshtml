@@ -1,0 +1,90 @@
+﻿@model E_ticaret_Projemiz.Models.uyeler
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>uyeler</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.kuladi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.kuladi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.sifre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.sifre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.adsoyad)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.adsoyad)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.dogtar)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.dogtar)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.cinsiyet)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.cinsiyet)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.adres)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.adres)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.email)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.meslek.meslekad)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.meslek.meslekad)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.sehirler.sehiradi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.sehirler.sehiradi)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.uyeid }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

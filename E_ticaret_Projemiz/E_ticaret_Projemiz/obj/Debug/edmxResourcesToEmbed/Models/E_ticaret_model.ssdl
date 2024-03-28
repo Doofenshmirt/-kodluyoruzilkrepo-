@@ -1,0 +1,157 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="E_ticaretModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="admin">
+    <Key>
+      <PropertyRef Name="kuladi" />
+    </Key>
+    <Property Name="kuladi" Type="nchar" MaxLength="10" Nullable="false" />
+    <Property Name="sifre" Type="nchar" MaxLength="10" />
+  </EntityType>
+  <EntityType Name="kategoriler">
+    <Key>
+      <PropertyRef Name="kateno" />
+    </Key>
+    <Property Name="kateno" Type="tinyint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="kateadi" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="meslek">
+    <Key>
+      <PropertyRef Name="meslekid" />
+    </Key>
+    <Property Name="meslekid" Type="smallint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="meslekad" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="sehirler">
+    <Key>
+      <PropertyRef Name="plaka" />
+    </Key>
+    <Property Name="plaka" Type="tinyint" Nullable="false" />
+    <Property Name="sehiradi" Type="nvarchar" MaxLength="15" Nullable="false" />
+  </EntityType>
+  <EntityType Name="siparisler">
+    <Key>
+      <PropertyRef Name="kayitno" />
+    </Key>
+    <Property Name="uyeid" Type="int" Nullable="false" />
+    <Property Name="urunid" Type="int" Nullable="false" />
+    <Property Name="adet" Type="smallint" Nullable="false" />
+    <Property Name="sip_tarihi" Type="smalldatetime" Nullable="false" />
+    <Property Name="sipno" Type="int" Nullable="false" />
+    <Property Name="kayitno" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+  </EntityType>
+  <EntityType Name="urunler">
+    <Key>
+      <PropertyRef Name="urunid" />
+    </Key>
+    <Property Name="urunid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="urunadi" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="fiyat" Type="float" Nullable="false" />
+    <Property Name="aciklama" Type="nvarchar" MaxLength="2000" />
+    <Property Name="resim" Type="nvarchar" MaxLength="50" />
+    <Property Name="kateno" Type="tinyint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="uyeler">
+    <Key>
+      <PropertyRef Name="uyeid" />
+    </Key>
+    <Property Name="uyeid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="kuladi" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="sifre" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="adsoyad" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="dogtar" Type="smalldatetime" Nullable="false" />
+    <Property Name="cinsiyet" Type="bit" Nullable="false" />
+    <Property Name="adres" Type="nvarchar" MaxLength="400" />
+    <Property Name="plaka" Type="tinyint" Nullable="false" />
+    <Property Name="email" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="meslekid" Type="smallint" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_siparisler_urunler">
+    <End Role="urunler" Type="Self.urunler" Multiplicity="1" />
+    <End Role="siparisler" Type="Self.siparisler" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="urunler">
+        <PropertyRef Name="urunid" />
+      </Principal>
+      <Dependent Role="siparisler">
+        <PropertyRef Name="urunid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_siparisler_uyeler1">
+    <End Role="uyeler" Type="Self.uyeler" Multiplicity="1" />
+    <End Role="siparisler" Type="Self.siparisler" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="uyeler">
+        <PropertyRef Name="uyeid" />
+      </Principal>
+      <Dependent Role="siparisler">
+        <PropertyRef Name="uyeid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_urunler_kategoriler">
+    <End Role="kategoriler" Type="Self.kategoriler" Multiplicity="1" />
+    <End Role="urunler" Type="Self.urunler" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="kategoriler">
+        <PropertyRef Name="kateno" />
+      </Principal>
+      <Dependent Role="urunler">
+        <PropertyRef Name="kateno" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_uyeler_meslek1">
+    <End Role="meslek" Type="Self.meslek" Multiplicity="1" />
+    <End Role="uyeler" Type="Self.uyeler" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="meslek">
+        <PropertyRef Name="meslekid" />
+      </Principal>
+      <Dependent Role="uyeler">
+        <PropertyRef Name="meslekid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_uyeler_sehirler1">
+    <End Role="sehirler" Type="Self.sehirler" Multiplicity="1" />
+    <End Role="uyeler" Type="Self.uyeler" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="sehirler">
+        <PropertyRef Name="plaka" />
+      </Principal>
+      <Dependent Role="uyeler">
+        <PropertyRef Name="plaka" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="E_ticaretModelStoreContainer">
+    <EntitySet Name="admin" EntityType="Self.admin" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="kategoriler" EntityType="Self.kategoriler" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="meslek" EntityType="Self.meslek" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sehirler" EntityType="Self.sehirler" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="siparisler" EntityType="Self.siparisler" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="urunler" EntityType="Self.urunler" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="uyeler" EntityType="Self.uyeler" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_siparisler_urunler" Association="Self.FK_siparisler_urunler">
+      <End Role="urunler" EntitySet="urunler" />
+      <End Role="siparisler" EntitySet="siparisler" />
+    </AssociationSet>
+    <AssociationSet Name="FK_siparisler_uyeler1" Association="Self.FK_siparisler_uyeler1">
+      <End Role="uyeler" EntitySet="uyeler" />
+      <End Role="siparisler" EntitySet="siparisler" />
+    </AssociationSet>
+    <AssociationSet Name="FK_urunler_kategoriler" Association="Self.FK_urunler_kategoriler">
+      <End Role="kategoriler" EntitySet="kategoriler" />
+      <End Role="urunler" EntitySet="urunler" />
+    </AssociationSet>
+    <AssociationSet Name="FK_uyeler_meslek1" Association="Self.FK_uyeler_meslek1">
+      <End Role="meslek" EntitySet="meslek" />
+      <End Role="uyeler" EntitySet="uyeler" />
+    </AssociationSet>
+    <AssociationSet Name="FK_uyeler_sehirler1" Association="Self.FK_uyeler_sehirler1">
+      <End Role="sehirler" EntitySet="sehirler" />
+      <End Role="uyeler" EntitySet="uyeler" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
