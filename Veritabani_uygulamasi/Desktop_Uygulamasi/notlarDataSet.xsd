@@ -1,0 +1,88 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="notlarDataSet" targetNamespace="http://tempuri.org/notlarDataSet.xsd" xmlns:mstns="http://tempuri.org/notlarDataSet.xsd" xmlns="http://tempuri.org/notlarDataSet.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="okulConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="okulConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.Desktop_Uygulamasi.Properties.Settings.GlobalReference.Default.okulConnectionString" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="notlarTableAdapter" GeneratorDataComponentClassName="notlarTableAdapter" Name="notlar" UserDataComponentName="notlarTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="okulConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT * FROM dbo.notlar,ogrenciler,dersler where ogrenciler.og_no=notlar.og_no and dersler.ders_no=notlar.ders_no</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="og_no" DataSetColumn="og_no" />
+              <Mapping SourceColumn="ders_no" DataSetColumn="ders_no" />
+              <Mapping SourceColumn="yaz1" DataSetColumn="yaz1" />
+              <Mapping SourceColumn="yaz2" DataSetColumn="yaz2" />
+              <Mapping SourceColumn="perf" DataSetColumn="perf" />
+              <Mapping SourceColumn="id" DataSetColumn="id" />
+              <Mapping SourceColumn="og_no1" DataSetColumn="og_no1" />
+              <Mapping SourceColumn="ad_soyad" DataSetColumn="ad_soyad" />
+              <Mapping SourceColumn="dog_tar" DataSetColumn="dog_tar" />
+              <Mapping SourceColumn="adres" DataSetColumn="adres" />
+              <Mapping SourceColumn="ders_no1" DataSetColumn="ders_no1" />
+              <Mapping SourceColumn="ders_adi" DataSetColumn="ders_adi" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="notlarDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="notlarDataSet" msprop:Generator_UserDSName="notlarDataSet">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="notlar" msprop:Generator_TableClassName="notlarDataTable" msprop:Generator_TableVarName="tablenotlar" msprop:Generator_RowChangedName="notlarRowChanged" msprop:Generator_TablePropName="notlar" msprop:Generator_RowDeletingName="notlarRowDeleting" msprop:Generator_RowChangingName="notlarRowChanging" msprop:Generator_RowEvHandlerName="notlarRowChangeEventHandler" msprop:Generator_RowDeletedName="notlarRowDeleted" msprop:Generator_RowClassName="notlarRow" msprop:Generator_UserTableName="notlar" msprop:Generator_RowEvArgName="notlarRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="og_no" msprop:Generator_ColumnVarNameInTable="columnog_no" msprop:Generator_ColumnPropNameInRow="og_no" msprop:Generator_ColumnPropNameInTable="og_noColumn" msprop:Generator_UserColumnName="og_no" type="xs:int" />
+              <xs:element name="ders_no" msprop:Generator_ColumnVarNameInTable="columnders_no" msprop:Generator_ColumnPropNameInRow="ders_no" msprop:Generator_ColumnPropNameInTable="ders_noColumn" msprop:Generator_UserColumnName="ders_no" type="xs:unsignedByte" />
+              <xs:element name="yaz1" msprop:Generator_ColumnVarNameInTable="columnyaz1" msprop:Generator_ColumnPropNameInRow="yaz1" msprop:Generator_ColumnPropNameInTable="yaz1Column" msprop:Generator_UserColumnName="yaz1" type="xs:unsignedByte" minOccurs="0" />
+              <xs:element name="yaz2" msprop:Generator_ColumnVarNameInTable="columnyaz2" msprop:Generator_ColumnPropNameInRow="yaz2" msprop:Generator_ColumnPropNameInTable="yaz2Column" msprop:Generator_UserColumnName="yaz2" type="xs:unsignedByte" minOccurs="0" />
+              <xs:element name="perf" msprop:Generator_ColumnVarNameInTable="columnperf" msprop:Generator_ColumnPropNameInRow="perf" msprop:Generator_ColumnPropNameInTable="perfColumn" msprop:Generator_UserColumnName="perf" type="xs:unsignedByte" minOccurs="0" />
+              <xs:element name="id" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnid" msprop:Generator_ColumnPropNameInRow="id" msprop:Generator_ColumnPropNameInTable="idColumn" msprop:Generator_UserColumnName="id" type="xs:int" />
+              <xs:element name="og_no1" msprop:Generator_ColumnVarNameInTable="columnog_no1" msprop:Generator_ColumnPropNameInRow="og_no1" msprop:Generator_ColumnPropNameInTable="og_no1Column" msprop:Generator_UserColumnName="og_no1" type="xs:int" />
+              <xs:element name="ad_soyad" msprop:Generator_ColumnVarNameInTable="columnad_soyad" msprop:Generator_ColumnPropNameInRow="ad_soyad" msprop:Generator_ColumnPropNameInTable="ad_soyadColumn" msprop:Generator_UserColumnName="ad_soyad">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="dog_tar" msprop:Generator_ColumnVarNameInTable="columndog_tar" msprop:Generator_ColumnPropNameInRow="dog_tar" msprop:Generator_ColumnPropNameInTable="dog_tarColumn" msprop:Generator_UserColumnName="dog_tar" type="xs:dateTime" />
+              <xs:element name="adres" msprop:Generator_ColumnVarNameInTable="columnadres" msprop:Generator_ColumnPropNameInRow="adres" msprop:Generator_ColumnPropNameInTable="adresColumn" msprop:Generator_UserColumnName="adres">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="ders_no1" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnders_no1" msprop:Generator_ColumnPropNameInRow="ders_no1" msprop:Generator_ColumnPropNameInTable="ders_no1Column" msprop:Generator_UserColumnName="ders_no1" type="xs:unsignedByte" />
+              <xs:element name="ders_adi" msprop:Generator_ColumnVarNameInTable="columnders_adi" msprop:Generator_ColumnPropNameInRow="ders_adi" msprop:Generator_ColumnPropNameInTable="ders_adiColumn" msprop:Generator_UserColumnName="ders_adi">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:notlar" />
+      <xs:field xpath="mstns:id" />
+    </xs:unique>
+  </xs:element>
+</xs:schema>
