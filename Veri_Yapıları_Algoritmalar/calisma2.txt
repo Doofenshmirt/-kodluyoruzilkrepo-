@@ -1,0 +1,31 @@
+Merge Sort Aşamaları
+Başlangıç Dizisi: [16, 21, 11, 8, 12, 22]
+Diziyi ikiye bölme:
+Sol kısmı: [16, 21, 11]
+Sağ kısmı: [8, 12, 22]
+Sol kısmı daha küçük parçalara ayırma:
+Sol kısmı: [16]
+Sağ kısmı: [21, 11]
+Sol kısmın sağ kısmını daha küçük parçalara ayırma:
+[21] ve [11]
+Daha sonra bu ikisini sıralayarak birleştirme: [11, 21]
+Sol kısmı birleştirme:
+[16] ve [11, 21]'i sıralayarak birleştirme: [11, 16, 21]
+Sağ kısmı daha küçük parçalara ayırma:
+Sol kısmı: [8]
+Sağ kısmı: [12, 22]
+Sağ kısmın sağ kısmını daha küçük parçalara ayırma:
+[12] ve [22]
+Daha sonra bu ikisini sıralayarak birleştirme: [12, 22]
+Sağ kısmı birleştirme:
+[8] ve [12, 22]'yi sıralayarak birleştirme: [8, 12, 22]
+Sol ve sağ kısmı birleştirme:
+[11, 16, 21] ve [8, 12, 22]'yi sıralayarak birleştirme: [8, 11, 12, 16, 21, 22]
+Big-O Gösterimi
+Merge Sort, her aşamada diziyi ikiye böldüğü için ve her seferinde birleştirme işlemi gerçekleştirildiği için time complexity (zaman karmaşıklığı) O(n log n) olarak hesaplanır.
+Merge Sort bu şekilde O(n log n) complexity ile etkin bir şekilde diziyi sıralar.
+
+
+
+
+

@@ -1,0 +1,43 @@
+Adım 1:
+Root: Dizinin ilk elemanı olan 7'yi kök düğüm olarak alıyoruz.Root: 7
+Adım 2:
+Dizi Elemanı: 5
+5 sayısı 7'den küçük olduğu için root'un soluna eklenir.7'nin solunda 5
+Adım 3:
+Dizi Elemanı: 1
+1 sayısı 7'den küçük olduğu için 7'nin soluna gidiyoruz.
+1, 5'ten de küçük olduğu için 5'in soluna eklenir.7'nin solunda 55'in solunda 1
+Adım 4:
+Dizi Elemanı: 8
+8 sayısı 7'den büyük olduğu için 7'nin sağına eklenir.7'nin sağında 8
+Adım 5:
+Dizi Elemanı: 3
+3 sayısı 7'den küçük olduğu için 7'nin soluna gidiyoruz.
+3, 5'ten küçük olduğu için 5'in soluna gidiyoruz.
+3, 1'den büyük olduğu için 1'in sağına eklenir.7'nin solunda 55'in solunda 11'in sağında 3
+Adım 6:
+Dizi Elemanı: 6
+6 sayısı 7'den küçük olduğu için 7'nin soluna gidiyoruz.
+6, 5'ten büyük olduğu için 5'in sağına eklenir.7'nin solunda 55'in sağında 6
+Adım 7:
+Dizi Elemanı: 0
+0 sayısı 7'den küçük olduğu için 7'nin soluna gidiyoruz.
+0, 5'ten küçük olduğu için 5'in soluna gidiyoruz.
+0, 1'den küçük olduğu için 1'in soluna eklenir.7'nin solunda 55'in solunda 11'in solunda 0
+Adım 8:
+Dizi Elemanı: 9
+9 sayısı 7'den büyük olduğu için 7'nin sağına gidiyoruz.
+9, 8'den büyük olduğu için 8'in sağına eklenir.7'nin sağında 88'in sağına 9
+Adım 9:
+Dizi Elemanı: 4
+4 sayısı 7'den küçük olduğu için 7'nin soluna gidiyoruz.
+4, 5'ten küçük olduğu için 5'in soluna gidiyoruz.
+4, 1'den büyük olduğu için 1'in sağına gidiyoruz.
+4, 3'ten büyük olduğu için 3'ün sağına eklenir.7'nin solunda 55'in solunda 11'in sağında 33'ün sağında 4
+Adım 10:
+Dizi Elemanı: 2
+2 sayısı 7'den küçük olduğu için 7'nin soluna gidiyoruz.
+2, 5'ten küçük olduğu için 5'in soluna gidiyoruz.
+2, 1'den büyük olduğu için 1'in sağına gidiyoruz.
+2, 3'ten küçük olduğu için 3'ün soluna eklenir.7'nin solunda 55'in solunda 11'in sağında 33'ün solunda 2
+Böylece 7'yi root olarak alarak dizi elemanlarını BST'ye eklemiş olduk.
